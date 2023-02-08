@@ -19,12 +19,17 @@ class Panier {
 
 }
 
+// Creation de la class
+let Item;
+let Prix;
+let Nombre;
+let idSousTotal;
+
 function CalculerSousTotal(item, prix, nombre) {
     // Creation de la class
-    let Item = item;
-    let Prix = prix;
-    let Nombre = nombre;
-    let idSousTotal;
+    Item = item;
+    Prix = prix;
+    Nombre = nombre;
 
     const fruit = new Fruit(Item, Prix, Nombre);
 
@@ -43,10 +48,17 @@ function CalculerSousTotal(item, prix, nombre) {
     document.getElementById(idSousTotal).innerText = newSoustotal;
 
     // Definir Panier
-    const panier = new Panier(fruit.Nombre, newSoustotal)
+    panier = new Panier(fruit.Nombre, newSoustotal)
 
     let anTotal = parseInt(document.getElementById("total").innerText);
     let newTotal = +anTotal + panier.Total
     document.getElementById("total").innerText = newTotal;
+
 }
 
+function Validation() {
+
+    if (+panier.Quantite > 20) {
+        return false;
+    }
+}
